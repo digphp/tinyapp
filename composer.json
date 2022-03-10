@@ -1,0 +1,20 @@
+{
+    "name": "digphp/tinyapp",
+    "description": "一个超小型的开发框架，符合psr规范~",
+    "type": "library",
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "DigPHP\\TinyApp\\": "src/"
+        }
+    },
+    "require": {
+        "digphp/psr3": "^1.0",
+        "digphp/psr11": "^1.0",
+        "digphp/psr15": "^1.0",
+        "digphp/psr16": "^1.0",
+        "digphp/psr17": "^1.0",
+        "digphp/router": "^1.0",
+        "digphp/responser": "^1.0"
+    }
+}
