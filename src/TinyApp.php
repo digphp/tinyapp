@@ -46,7 +46,9 @@ class TinyApp
 
         self::getContainer()->set(ServerRequestInterface::class, function (): ServerRequestInterface {
             $server_request = $this->getPsr17Factory()->createServerRequestFromGlobals();
-            return $server_request->withAttribute('query', array_merge($server_request->getQueryParams(), $this->getRoute()->getParams()));
+            return $server_request
+                ->withAttribute('route_params', $this->getRoute()->getParams())
+                ->withQueryParams(array_merge($server_request->getQueryParams(), $this->getRoute()->getParams()));
         });
 
         foreach (array_merge([
