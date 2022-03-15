@@ -6,6 +6,7 @@ namespace DigPHP\TinyApp;
 
 use DigPHP\Psr3\LocalLogger;
 use DigPHP\Psr11\Container;
+use DigPHP\Psr14\Event;
 use DigPHP\Psr15\RequestHandler;
 use DigPHP\Psr16\LocalAdapter;
 use DigPHP\Psr17\Factory;
@@ -14,6 +15,8 @@ use DigPHP\Router\Collector;
 use DigPHP\Router\Route;
 use DigPHP\Router\Router;
 use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
+use Psr\EventDispatcher\ListenerProviderInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -61,6 +64,8 @@ class TinyApp
             RequestFactoryInterface::class => Factory::class,
             StreamFactoryInterface::class => Factory::class,
             UploadedFileFactoryInterface::class => Factory::class,
+            EventDispatcherInterface::class => Event::class,
+            ListenerProviderInterface::class => Event::class,
         ], $alias) as $key => $obj) {
             self::getContainer()->set($key, is_string($obj) ? function () use ($obj) {
                 return self::getContainer()->get($obj);
