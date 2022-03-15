@@ -11,6 +11,7 @@
     "require": {
         "digphp/psr3": "^1.0",
         "digphp/psr11": "^1.0",
+        "digphp/psr14": "^1.0",
         "digphp/psr15": "^1.0",
         "digphp/psr16": "^1.0",
         "digphp/psr17": "^1.0",
